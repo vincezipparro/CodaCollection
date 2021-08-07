@@ -1,0 +1,53 @@
+Run options:
+  include {:focus=>true}
+  exclude {:ignore=>true}
+
+All examples were filtered out; ignoring {:focus=>true}
+
+Coda Collection Challenge
+[31m  should view a film page and navigate to its corresponding Amazon Prime Video page (FAILED - 1)[0m
+[32m  should view the QA Engineer job posting[0m
+[32m  should successfully subscribe to the Coda mailing lis[0m
+[31m  should clview search results related to the band Radiohead (FAILED - 2)[0m
+
+Failures:
+
+  1) Coda Collection Challenge should view a film page and navigate to its corresponding Amazon Prime Video page
+     [31mFailure/Error: [0mvisit [31m[1;31m'[0m[31mhttps://codacollection.co/[1;31m'[0m[31m[0m[0m
+     [31m[0m
+     [31mNet::ReadTimeout:[0m
+     [31m  Net::ReadTimeout with #<TCPSocket:(closed)>[0m
+     [36m# ./spec/challenge.rb:5:in `block (2 levels) in <top (required)>'[0m
+
+  2) Coda Collection Challenge should clview search results related to the band Radiohead
+     [31mFailure/Error: Unable to infer file and line number from backtrace[0m
+     [31m[0m
+     [31mSelenium::WebDriver::Error::InvalidArgumentError:[0m
+     [31m  invalid argument: 'handle' must be a string[0m
+     [31m    (Session info: chrome=92.0.4515.131)[0m
+     [36m# 0   chromedriver                        0x000000010342e829 chromedriver + 2730025[0m
+     [36m# 1   chromedriver                        0x0000000103aebf43 chromedriver + 9797443[0m
+     [36m# 2   chromedriver                        0x00000001031c0958 chromedriver + 182616[0m
+     [36m# 3   chromedriver                        0x000000010321a8bc chromedriver + 551100[0m
+     [36m# 4   chromedriver                        0x0000000103211e28 chromedriver + 515624[0m
+     [36m# 5   chromedriver                        0x00000001031e88be chromedriver + 346302[0m
+     [36m# 6   chromedriver                        0x00000001031e9b25 chromedriver + 351013[0m
+     [36m# 7   chromedriver                        0x00000001033f5f8f chromedriver + 2498447[0m
+     [36m# 8   chromedriver                        0x0000000103408a61 chromedriver + 2574945[0m
+     [36m# 9   chromedriver                        0x00000001033db76b chromedriver + 2389867[0m
+     [36m# 10  chromedriver                        0x0000000103409eda chromedriver + 2580186[0m
+     [36m# 11  chromedriver                        0x00000001033ebffc chromedriver + 2457596[0m
+     [36m# 12  chromedriver                        0x0000000103423148 chromedriver + 2683208[0m
+     [36m# 13  chromedriver                        0x00000001034232d1 chromedriver + 2683601[0m
+     [36m# 14  chromedriver                        0x0000000103433848 chromedriver + 2750536[0m
+     [36m# 15  libsystem_pthread.dylib             0x00007fff7109e109 _pthread_start + 148[0m
+     [36m# 16  libsystem_pthread.dylib             0x00007fff71099b8b thread_start + 15[0m
+
+Finished in 2 minutes 30.3 seconds (files took 2.47 seconds to load)
+[31m4 examples, 2 failures[0m
+
+Failed examples:
+
+[31mrspec ./spec/challenge.rb:8[0m [36m# Coda Collection Challenge should view a film page and navigate to its corresponding Amazon Prime Video page[0m
+[31mrspec ./spec/challenge.rb:17[0m [36m# Coda Collection Challenge should clview search results related to the band Radiohead[0m
+
