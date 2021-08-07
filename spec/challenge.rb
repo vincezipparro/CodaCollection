@@ -26,9 +26,17 @@ describe 'Coda Collection Challenge' do
     expect(job_posting_url.to_s).to include('qa-engineer')
   end
 
-  # it 'should successfully subscribe to the Coda mailing list' do
-  #   visit 'https://codacollection.co/'
-  # end
+  it 'should successfully subscribe to the Coda mailing list' do
+    visit 'https://codacollection.co/'
+
+    random_str = rand(10**10)
+
+    find(:xpath, '//div[1]/div[1]/form[1]/div[1]/div[1]/input[1]').set("#{random_str}@gmail.com")
+
+    click_button 'Subscribe'
+
+    expect(page).to have_text("Great. You're in.")
+  end
 
   # it 'should view search results related to the band Radiohead' do
   # end
