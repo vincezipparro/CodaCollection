@@ -48,6 +48,7 @@ describe 'Coda Collection Challenge' do
     video_count      = find(:xpath, '//div[2]/ul[1]/li[4]/button[1]/div[1]').text.gsub(/[^0-9]/, '').to_i
     story_count      = find(:xpath, '//div[2]/ul[1]/li[5]/button[1]/div[1]').text.gsub(/[^0-9]/, '').to_i
 
+    # assert search results do not return 0
     expect(artist_count).to be >= 1
     expect(collection_count).to be >= 1
     expect(video_count).to be >= 1
