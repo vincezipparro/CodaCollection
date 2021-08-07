@@ -4,7 +4,6 @@ require 'rspec/rails'
 require 'capybara'
 require 'capybara/rspec'
 require 'qt_plugin_messages_suppressed'
-require 'download_helper'
 require 'capybara-screenshot/rspec'
 require 'rspec/retry'
 require 'nokogiri'
@@ -34,7 +33,6 @@ end
 # chrome
 Capybara.register_driver :selenium do |app|
   profile = Selenium::WebDriver::Chrome::Profile.new
-  profile['download.default_directory'] = DownloadHelper::PATH.to_s
   profile['download.prompt_for_download'] = false
   profile['browser.download.folderList'] = 2
   profile['browser.helperApps.neverAsk.saveToDisk'] = 'text/csv, text/html, application/vnd.ms-excel, application/msword'
@@ -58,7 +56,6 @@ Capybara.register_driver :selenium_chrome_headless do |app|
   options.add_argument('--ignore-ssl-errors=yes')
   options.add_argument('--ignore-certificate-errors')
 
-  options.add_preference(:download, directory_upgrade: true, prompt_for_download: false, default_directory: DownloadHelper::PATH.to_s)
   options.add_preference(:browser, set_download_behavior: { behavior: 'allow' })
 
   driver = Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
@@ -67,8 +64,6 @@ Capybara.register_driver :selenium_chrome_headless do |app|
 
   path = '/session/:session_id/chromium/send_command'
   path[':session_id'] = bridge.session_id
-
-  bridge.http.call(:post, path, cmd: 'Page.setDownloadBehavior', params: { behavior: 'allow', downloadPath: DownloadHelper::PATH.to_s })
 
   driver
 end
