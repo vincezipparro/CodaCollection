@@ -12,8 +12,8 @@ Using an automation framework of your choosing, create 3 automated tests to vali
 # How To Run
 - Clone repo to desktop
 - Open folder in VS Code/Other IDE(optional)
-- Open/In your terminal cd into the folder path of cloned repo
-- Run gem install bundler or possibly sudo gem install bundler
-- Run bundle install
-- Run DT_ENV=test bundle exec rspec spec/challenge.rb
+- Open/In your terminal `cd` into the folder path of cloned repo
+- Run `gem install bundler` or possibly `sudo gem install bundler`
+- Run `bundle install`
+- Run `DT_ENV=test bundle exec rspec spec/challenge.rb`
 - View results in terminal!
