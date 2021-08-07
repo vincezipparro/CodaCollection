@@ -38,6 +38,19 @@ describe 'Coda Collection Challenge' do
     expect(page).to have_text("Great. You're in.")
   end
 
-  # it 'should view search results related to the band Radiohead' do
-  # end
+  it 'should view search results related to the band Radiohead' do
+    artist = 'radiohead'
+    visit "https://codacollection.co/search?q=#{artist}"
+
+    # extract values returned from search for each category and convert them to ints
+    artist_count     = find(:xpath, '//div[2]/ul[1]/li[2]/button[1]/div[1]').text.gsub(/[^0-9]/, '').to_i
+    collection_count = find(:xpath, '//div[2]/ul[1]/li[3]/button[1]/div[1]').text.gsub(/[^0-9]/, '').to_i
+    video_count      = find(:xpath, '//div[2]/ul[1]/li[4]/button[1]/div[1]').text.gsub(/[^0-9]/, '').to_i
+    story_count      = find(:xpath, '//div[2]/ul[1]/li[5]/button[1]/div[1]').text.gsub(/[^0-9]/, '').to_i
+
+    expect(artist_count).to be >= 1
+    expect(collection_count).to be >= 1
+    expect(video_count).to be >= 1
+    expect(story_count).to be >= 1
+  end
 end
