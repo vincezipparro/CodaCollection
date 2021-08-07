@@ -15,9 +15,16 @@ describe 'Coda Collection Challenge' do
     expect(page).to have_xpath("//h1[contains(text(),'What Drives Us')]")
   end
 
-  # it 'should view the QA Engineer job posting' do
-  #   visit 'https://codacollection.co/jobs'
-  # end
+  it 'should view the QA Engineer job posting' do
+    visit 'https://codacollection.co/jobs'
+
+    expect(page).to have_xpath("//div[contains(text(),'QA Engineer')]")
+    find(:xpath, "//div[contains(text(),'QA Engineer')]", match: :first).click
+
+    expect(page).to have_xpath("//div[contains(text(),'Apply Now')]")
+    job_posting_url = URI.parse(current_url)
+    expect(job_posting_url.to_s).to include('qa-engineer')
+  end
 
   # it 'should successfully subscribe to the Coda mailing list' do
   #   visit 'https://codacollection.co/'
