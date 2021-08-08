@@ -16,4 +16,4 @@ Using an automation framework of your choosing, create 3 automated tests to vali
 - Run `gem install bundler` or possibly `sudo gem install bundler`
 - Run `bundle install`
 - Run `bundle exec rspec spec/challenge.rb`
-- View results in terminal!
+- View results in terminal!(Webdriver is being run in headless mode)
