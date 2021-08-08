@@ -5,27 +5,235 @@ Run options:
 All examples were filtered out; ignoring {:focus=>true}
 
 Coda Collection Challenge
-[32m  should assert navigation to film page and redirect to its corresponding Amazon Prime Video page[0m
 [32m  should assert there is a QA Engineer job posting[0m
-[32m  should assert subscription to the Coda mailing list[0m
-[31m  should assert search results related to the band Radiohead (FAILED - 1)[0m
-[32m  should assert trending stories are being returned on page[0m
-[32m  should assert new releases stories are being returned on page[0m
+[31m  should assert subscription to the Coda mailing list (FAILED - 1)[0m
+[31m  should assert search results related to the band Radiohead (FAILED - 2)[0m
+[31m  should assert trending stories are being returned on page (FAILED - 3)[0m
+[31m  should assert new releases stories are being returned on page (FAILED - 4)[0m
 
 Failures:
 
-  1) Coda Collection Challenge should assert search results related to the band Radiohead
-     [31mFailure/Error: [0mvisit [31m[1;31m"[0m[31mhttps://codacollection.co/search?q=#{artist_name}[0m[31m[1;31m"[0m[31m[0m[0m
-     [31m[0m
-     [31mNet::ReadTimeout:[0m
-     [31m  Net::ReadTimeout with #<TCPSocket:(closed)>[0m
-     [36m# ./spec/support/search.rb:3:in `artist_search'[0m
-     [36m# ./spec/challenge.rb:40:in `block (2 levels) in <top (required)>'[0m
+  1) Coda Collection Challenge should assert subscription to the Coda mailing list
+     [31mGot 0 failures and 2 other errors:[0m
 
-Finished in 4 minutes 34.7 seconds (files took 2.57 seconds to load)
-[31m6 examples, 1 failure[0m
+     1.1) [31mFailure/Error: [0mfind([33m:xpath[0m, [31m[1;31m'[0m[31m//form[1]/div[1]/div[1]/input[1][1;31m'[0m[31m[0m).set([31m[1;31m"[0m[31m#{email_name}[0m[31m@gmail.com[1;31m"[0m[31m[0m)[0m
+          [31m[0m
+          [31mSelenium::WebDriver::Error::NoSuchWindowError:[0m
+          [31m  no such window: target window already closed[0m
+          [31m  from unknown error: web view not found[0m
+          [31m    (Session info: chrome=92.0.4515.131)[0m
+          [36m# 0   chromedriver                        0x000000010db1e829 chromedriver + 2730025[0m
+          [36m# 1   chromedriver                        0x000000010e1dbf43 chromedriver + 9797443[0m
+          [36m# 2   chromedriver                        0x000000010d8b0958 chromedriver + 182616[0m
+          [36m# 3   chromedriver                        0x000000010d8927c4 chromedriver + 59332[0m
+          [36m# 4   chromedriver                        0x000000010d90529c chromedriver + 529052[0m
+          [36m# 5   chromedriver                        0x000000010d913aff chromedriver + 588543[0m
+          [36m# 6   chromedriver                        0x000000010d902193 chromedriver + 516499[0m
+          [36m# 7   chromedriver                        0x000000010d8d88be chromedriver + 346302[0m
+          [36m# 8   chromedriver                        0x000000010d8d9b25 chromedriver + 351013[0m
+          [36m# 9   chromedriver                        0x000000010dae5f8f chromedriver + 2498447[0m
+          [36m# 10  chromedriver                        0x000000010daf8a61 chromedriver + 2574945[0m
+          [36m# 11  chromedriver                        0x000000010dacb76b chromedriver + 2389867[0m
+          [36m# 12  chromedriver                        0x000000010daf9eda chromedriver + 2580186[0m
+          [36m# 13  chromedriver                        0x000000010dadbffc chromedriver + 2457596[0m
+          [36m# 14  chromedriver                        0x000000010db13148 chromedriver + 2683208[0m
+          [36m# 15  chromedriver                        0x000000010db132d1 chromedriver + 2683601[0m
+          [36m# 16  chromedriver                        0x000000010db23848 chromedriver + 2750536[0m
+          [36m# 17  libsystem_pthread.dylib             0x00007fff7109e109 _pthread_start + 148[0m
+          [36m# 18  libsystem_pthread.dylib             0x00007fff71099b8b thread_start + 15[0m
+          [36m# ./spec/support/mailing_list.rb:3:in `generate_and_submit_email'[0m
+          [36m# ./spec/challenge.rb:34:in `block (2 levels) in <top (required)>'[0m
+
+     1.2) [31mFailure/Error: Unable to infer file and line number from backtrace[0m
+          [31m[0m
+          [31mSelenium::WebDriver::Error::InvalidArgumentError:[0m
+          [31m  invalid argument: 'handle' must be a string[0m
+          [31m    (Session info: chrome=92.0.4515.131)[0m
+          [36m# 0   chromedriver                        0x000000010db1e829 chromedriver + 2730025[0m
+          [36m# 1   chromedriver                        0x000000010e1dbf43 chromedriver + 9797443[0m
+          [36m# 2   chromedriver                        0x000000010d8b0958 chromedriver + 182616[0m
+          [36m# 3   chromedriver                        0x000000010d90a8bc chromedriver + 551100[0m
+          [36m# 4   chromedriver                        0x000000010d901e28 chromedriver + 515624[0m
+          [36m# 5   chromedriver                        0x000000010d8d88be chromedriver + 346302[0m
+          [36m# 6   chromedriver                        0x000000010d8d9b25 chromedriver + 351013[0m
+          [36m# 7   chromedriver                        0x000000010dae5f8f chromedriver + 2498447[0m
+          [36m# 8   chromedriver                        0x000000010daf8a61 chromedriver + 2574945[0m
+          [36m# 9   chromedriver                        0x000000010dacb76b chromedriver + 2389867[0m
+          [36m# 10  chromedriver                        0x000000010daf9eda chromedriver + 2580186[0m
+          [36m# 11  chromedriver                        0x000000010dadbffc chromedriver + 2457596[0m
+          [36m# 12  chromedriver                        0x000000010db13148 chromedriver + 2683208[0m
+          [36m# 13  chromedriver                        0x000000010db132d1 chromedriver + 2683601[0m
+          [36m# 14  chromedriver                        0x000000010db23848 chromedriver + 2750536[0m
+          [36m# 15  libsystem_pthread.dylib             0x00007fff7109e109 _pthread_start + 148[0m
+          [36m# 16  libsystem_pthread.dylib             0x00007fff71099b8b thread_start + 15[0m
+
+  2) Coda Collection Challenge should assert search results related to the band Radiohead
+     [31mGot 0 failures and 2 other errors:[0m
+
+     2.1) [31mFailure/Error: [0mvisit [31m[1;31m"[0m[31mhttps://codacollection.co/search?q=#{artist_name}[0m[31m[1;31m"[0m[31m[0m[0m
+          [31m[0m
+          [31mSelenium::WebDriver::Error::NoSuchWindowError:[0m
+          [31m  no such window: target window already closed[0m
+          [31m  from unknown error: web view not found[0m
+          [31m    (Session info: chrome=92.0.4515.131)[0m
+          [36m# 0   chromedriver                        0x000000010db1e829 chromedriver + 2730025[0m
+          [36m# 1   chromedriver                        0x000000010e1dbf43 chromedriver + 9797443[0m
+          [36m# 2   chromedriver                        0x000000010d8b0958 chromedriver + 182616[0m
+          [36m# 3   chromedriver                        0x000000010d8927c4 chromedriver + 59332[0m
+          [36m# 4   chromedriver                        0x000000010d90529c chromedriver + 529052[0m
+          [36m# 5   chromedriver                        0x000000010d913aff chromedriver + 588543[0m
+          [36m# 6   chromedriver                        0x000000010d902193 chromedriver + 516499[0m
+          [36m# 7   chromedriver                        0x000000010d8d88be chromedriver + 346302[0m
+          [36m# 8   chromedriver                        0x000000010d8d9b25 chromedriver + 351013[0m
+          [36m# 9   chromedriver                        0x000000010dae5f8f chromedriver + 2498447[0m
+          [36m# 10  chromedriver                        0x000000010daf8a61 chromedriver + 2574945[0m
+          [36m# 11  chromedriver                        0x000000010dacb76b chromedriver + 2389867[0m
+          [36m# 12  chromedriver                        0x000000010daf9eda chromedriver + 2580186[0m
+          [36m# 13  chromedriver                        0x000000010dadbffc chromedriver + 2457596[0m
+          [36m# 14  chromedriver                        0x000000010db13148 chromedriver + 2683208[0m
+          [36m# 15  chromedriver                        0x000000010db132d1 chromedriver + 2683601[0m
+          [36m# 16  chromedriver                        0x000000010db23848 chromedriver + 2750536[0m
+          [36m# 17  libsystem_pthread.dylib             0x00007fff7109e109 _pthread_start + 148[0m
+          [36m# 18  libsystem_pthread.dylib             0x00007fff71099b8b thread_start + 15[0m
+          [36m# ./spec/support/search.rb:3:in `artist_search'[0m
+          [36m# ./spec/challenge.rb:40:in `block (2 levels) in <top (required)>'[0m
+
+     2.2) [31mFailure/Error: Unable to infer file and line number from backtrace[0m
+          [31m[0m
+          [31mSelenium::WebDriver::Error::InvalidArgumentError:[0m
+          [31m  invalid argument: 'handle' must be a string[0m
+          [31m    (Session info: chrome=92.0.4515.131)[0m
+          [36m# 0   chromedriver                        0x000000010db1e829 chromedriver + 2730025[0m
+          [36m# 1   chromedriver                        0x000000010e1dbf43 chromedriver + 9797443[0m
+          [36m# 2   chromedriver                        0x000000010d8b0958 chromedriver + 182616[0m
+          [36m# 3   chromedriver                        0x000000010d90a8bc chromedriver + 551100[0m
+          [36m# 4   chromedriver                        0x000000010d901e28 chromedriver + 515624[0m
+          [36m# 5   chromedriver                        0x000000010d8d88be chromedriver + 346302[0m
+          [36m# 6   chromedriver                        0x000000010d8d9b25 chromedriver + 351013[0m
+          [36m# 7   chromedriver                        0x000000010dae5f8f chromedriver + 2498447[0m
+          [36m# 8   chromedriver                        0x000000010daf8a61 chromedriver + 2574945[0m
+          [36m# 9   chromedriver                        0x000000010dacb76b chromedriver + 2389867[0m
+          [36m# 10  chromedriver                        0x000000010daf9eda chromedriver + 2580186[0m
+          [36m# 11  chromedriver                        0x000000010dadbffc chromedriver + 2457596[0m
+          [36m# 12  chromedriver                        0x000000010db13148 chromedriver + 2683208[0m
+          [36m# 13  chromedriver                        0x000000010db132d1 chromedriver + 2683601[0m
+          [36m# 14  chromedriver                        0x000000010db23848 chromedriver + 2750536[0m
+          [36m# 15  libsystem_pthread.dylib             0x00007fff7109e109 _pthread_start + 148[0m
+          [36m# 16  libsystem_pthread.dylib             0x00007fff71099b8b thread_start + 15[0m
+
+  3) Coda Collection Challenge should assert trending stories are being returned on page
+     [31mGot 0 failures and 2 other errors:[0m
+
+     3.1) [31mFailure/Error: [0mvisit [31m[1;31m'[0m[31mhttps://codacollection.co/[1;31m'[0m[31m[0m[0m
+          [31m[0m
+          [31mSelenium::WebDriver::Error::NoSuchWindowError:[0m
+          [31m  no such window: target window already closed[0m
+          [31m  from unknown error: web view not found[0m
+          [31m    (Session info: chrome=92.0.4515.131)[0m
+          [36m# 0   chromedriver                        0x000000010db1e829 chromedriver + 2730025[0m
+          [36m# 1   chromedriver                        0x000000010e1dbf43 chromedriver + 9797443[0m
+          [36m# 2   chromedriver                        0x000000010d8b0958 chromedriver + 182616[0m
+          [36m# 3   chromedriver                        0x000000010d8927c4 chromedriver + 59332[0m
+          [36m# 4   chromedriver                        0x000000010d90529c chromedriver + 529052[0m
+          [36m# 5   chromedriver                        0x000000010d913aff chromedriver + 588543[0m
+          [36m# 6   chromedriver                        0x000000010d902193 chromedriver + 516499[0m
+          [36m# 7   chromedriver                        0x000000010d8d88be chromedriver + 346302[0m
+          [36m# 8   chromedriver                        0x000000010d8d9b25 chromedriver + 351013[0m
+          [36m# 9   chromedriver                        0x000000010dae5f8f chromedriver + 2498447[0m
+          [36m# 10  chromedriver                        0x000000010daf8a61 chromedriver + 2574945[0m
+          [36m# 11  chromedriver                        0x000000010dacb76b chromedriver + 2389867[0m
+          [36m# 12  chromedriver                        0x000000010daf9eda chromedriver + 2580186[0m
+          [36m# 13  chromedriver                        0x000000010dadbffc chromedriver + 2457596[0m
+          [36m# 14  chromedriver                        0x000000010db13148 chromedriver + 2683208[0m
+          [36m# 15  chromedriver                        0x000000010db132d1 chromedriver + 2683601[0m
+          [36m# 16  chromedriver                        0x000000010db23848 chromedriver + 2750536[0m
+          [36m# 17  libsystem_pthread.dylib             0x00007fff7109e109 _pthread_start + 148[0m
+          [36m# 18  libsystem_pthread.dylib             0x00007fff71099b8b thread_start + 15[0m
+          [36m# ./spec/challenge.rb:56:in `block (2 levels) in <top (required)>'[0m
+
+     3.2) [31mFailure/Error: Unable to infer file and line number from backtrace[0m
+          [31m[0m
+          [31mSelenium::WebDriver::Error::InvalidArgumentError:[0m
+          [31m  invalid argument: 'handle' must be a string[0m
+          [31m    (Session info: chrome=92.0.4515.131)[0m
+          [36m# 0   chromedriver                        0x000000010db1e829 chromedriver + 2730025[0m
+          [36m# 1   chromedriver                        0x000000010e1dbf43 chromedriver + 9797443[0m
+          [36m# 2   chromedriver                        0x000000010d8b0958 chromedriver + 182616[0m
+          [36m# 3   chromedriver                        0x000000010d90a8bc chromedriver + 551100[0m
+          [36m# 4   chromedriver                        0x000000010d901e28 chromedriver + 515624[0m
+          [36m# 5   chromedriver                        0x000000010d8d88be chromedriver + 346302[0m
+          [36m# 6   chromedriver                        0x000000010d8d9b25 chromedriver + 351013[0m
+          [36m# 7   chromedriver                        0x000000010dae5f8f chromedriver + 2498447[0m
+          [36m# 8   chromedriver                        0x000000010daf8a61 chromedriver + 2574945[0m
+          [36m# 9   chromedriver                        0x000000010dacb76b chromedriver + 2389867[0m
+          [36m# 10  chromedriver                        0x000000010daf9eda chromedriver + 2580186[0m
+          [36m# 11  chromedriver                        0x000000010dadbffc chromedriver + 2457596[0m
+          [36m# 12  chromedriver                        0x000000010db13148 chromedriver + 2683208[0m
+          [36m# 13  chromedriver                        0x000000010db132d1 chromedriver + 2683601[0m
+          [36m# 14  chromedriver                        0x000000010db23848 chromedriver + 2750536[0m
+          [36m# 15  libsystem_pthread.dylib             0x00007fff7109e109 _pthread_start + 148[0m
+          [36m# 16  libsystem_pthread.dylib             0x00007fff71099b8b thread_start + 15[0m
+
+  4) Coda Collection Challenge should assert new releases stories are being returned on page
+     [31mGot 0 failures and 2 other errors:[0m
+
+     4.1) [31mFailure/Error: [0mvisit [31m[1;31m'[0m[31mhttps://codacollection.co/[1;31m'[0m[31m[0m[0m
+          [31m[0m
+          [31mSelenium::WebDriver::Error::NoSuchWindowError:[0m
+          [31m  no such window: target window already closed[0m
+          [31m  from unknown error: web view not found[0m
+          [31m    (Session info: chrome=92.0.4515.131)[0m
+          [36m# 0   chromedriver                        0x000000010db1e829 chromedriver + 2730025[0m
+          [36m# 1   chromedriver                        0x000000010e1dbf43 chromedriver + 9797443[0m
+          [36m# 2   chromedriver                        0x000000010d8b0958 chromedriver + 182616[0m
+          [36m# 3   chromedriver                        0x000000010d8927c4 chromedriver + 59332[0m
+          [36m# 4   chromedriver                        0x000000010d90529c chromedriver + 529052[0m
+          [36m# 5   chromedriver                        0x000000010d913aff chromedriver + 588543[0m
+          [36m# 6   chromedriver                        0x000000010d902193 chromedriver + 516499[0m
+          [36m# 7   chromedriver                        0x000000010d8d88be chromedriver + 346302[0m
+          [36m# 8   chromedriver                        0x000000010d8d9b25 chromedriver + 351013[0m
+          [36m# 9   chromedriver                        0x000000010dae5f8f chromedriver + 2498447[0m
+          [36m# 10  chromedriver                        0x000000010daf8a61 chromedriver + 2574945[0m
+          [36m# 11  chromedriver                        0x000000010dacb76b chromedriver + 2389867[0m
+          [36m# 12  chromedriver                        0x000000010daf9eda chromedriver + 2580186[0m
+          [36m# 13  chromedriver                        0x000000010dadbffc chromedriver + 2457596[0m
+          [36m# 14  chromedriver                        0x000000010db13148 chromedriver + 2683208[0m
+          [36m# 15  chromedriver                        0x000000010db132d1 chromedriver + 2683601[0m
+          [36m# 16  chromedriver                        0x000000010db23848 chromedriver + 2750536[0m
+          [36m# 17  libsystem_pthread.dylib             0x00007fff7109e109 _pthread_start + 148[0m
+          [36m# 18  libsystem_pthread.dylib             0x00007fff71099b8b thread_start + 15[0m
+          [36m# ./spec/challenge.rb:71:in `block (2 levels) in <top (required)>'[0m
+
+     4.2) [31mFailure/Error: Unable to infer file and line number from backtrace[0m
+          [31m[0m
+          [31mSelenium::WebDriver::Error::InvalidArgumentError:[0m
+          [31m  invalid argument: 'handle' must be a string[0m
+          [31m    (Session info: chrome=92.0.4515.131)[0m
+          [36m# 0   chromedriver                        0x000000010db1e829 chromedriver + 2730025[0m
+          [36m# 1   chromedriver                        0x000000010e1dbf43 chromedriver + 9797443[0m
+          [36m# 2   chromedriver                        0x000000010d8b0958 chromedriver + 182616[0m
+          [36m# 3   chromedriver                        0x000000010d90a8bc chromedriver + 551100[0m
+          [36m# 4   chromedriver                        0x000000010d901e28 chromedriver + 515624[0m
+          [36m# 5   chromedriver                        0x000000010d8d88be chromedriver + 346302[0m
+          [36m# 6   chromedriver                        0x000000010d8d9b25 chromedriver + 351013[0m
+          [36m# 7   chromedriver                        0x000000010dae5f8f chromedriver + 2498447[0m
+          [36m# 8   chromedriver                        0x000000010daf8a61 chromedriver + 2574945[0m
+          [36m# 9   chromedriver                        0x000000010dacb76b chromedriver + 2389867[0m
+          [36m# 10  chromedriver                        0x000000010daf9eda chromedriver + 2580186[0m
+          [36m# 11  chromedriver                        0x000000010dadbffc chromedriver + 2457596[0m
+          [36m# 12  chromedriver                        0x000000010db13148 chromedriver + 2683208[0m
+          [36m# 13  chromedriver                        0x000000010db132d1 chromedriver + 2683601[0m
+          [36m# 14  chromedriver                        0x000000010db23848 chromedriver + 2750536[0m
+          [36m# 15  libsystem_pthread.dylib             0x00007fff7109e109 _pthread_start + 148[0m
+          [36m# 16  libsystem_pthread.dylib             0x00007fff71099b8b thread_start + 15[0m
+
+Finished in 46.35 seconds (files took 1.86 seconds to load)
+[31m5 examples, 4 failures[0m
 
 Failed examples:
 
+[31mrspec ./spec/challenge.rb:29[0m [36m# Coda Collection Challenge should assert subscription to the Coda mailing list[0m
 [31mrspec ./spec/challenge.rb:39[0m [36m# Coda Collection Challenge should assert search results related to the band Radiohead[0m
+[31mrspec ./spec/challenge.rb:55[0m [36m# Coda Collection Challenge should assert trending stories are being returned on page[0m
+[31mrspec ./spec/challenge.rb:70[0m [36m# Coda Collection Challenge should assert new releases stories are being returned on page[0m
 

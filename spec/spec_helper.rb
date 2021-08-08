@@ -1,5 +1,5 @@
 require File.expand_path('../config/environment', __dir__)
-require File.expand_path('../config/dt_env.rb', File.dirname(__FILE__))
+# require File.expand_path('../config/dt_env.rb', File.dirname(__FILE__))
 require 'rspec/rails'
 require 'capybara'
 require 'capybara/rspec'
@@ -102,3 +102,5 @@ end
 Capybara::Screenshot.register_driver(:firefox_headless) do |driver, path|
   driver.browser.save_screenshot(path)
 end
+
+Capybara.server = :webrick
