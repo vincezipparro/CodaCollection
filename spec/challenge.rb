@@ -3,6 +3,7 @@ include Search
 include Redirect
 include MailingList
 include Discover
+include Stories
 
 describe 'Coda Collection Challenge' do
   it 'should assert navigation to film page and redirect to its corresponding Amazon Prime Video page' do
@@ -58,7 +59,7 @@ describe 'Coda Collection Challenge' do
     find(:xpath, "//div[contains(text(),'Trending')]").click
 
     trending_arr = []
-    trending_stories = all(:xpath, "//body/div[@id='__next']/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/a")
+    trending_stories = all(:xpath, '//div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/a')
 
     trending_stories.each do |story|
       trending_arr << story
@@ -73,12 +74,20 @@ describe 'Coda Collection Challenge' do
     find(:xpath, "//div[contains(text(),'New Releases')]").click
 
     new_releases_arr = []
-    new_releases = all(:xpath, "//body/div[@id='__next']/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/a")
+    new_releases = all(:xpath, '//div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/a')
 
     new_releases.each do |article|
       new_releases_arr << article
     end
 
     verify_new_releases_div(new_releases_arr)
+  end
+
+  it 'should assert critical elements on stories page' do
+    visit 'https://codacollection.co/stories'
+
+    verify_featured_stories
+    verify_zines
+    verify_all_stories
   end
 end
