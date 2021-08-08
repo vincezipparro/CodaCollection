@@ -16,12 +16,12 @@ Coda Collection Challenge
 Failures:
 
   1) Coda Collection Challenge should assert critical elements on stories page
-     [31mFailure/Error: [0m[32mexpect[0m(page).to have_xpath([31m[1;31m'[0m[31m//div[@data-testid="contentCell"][1;31m'[0m[31m[0m)[0m
-     [31m  expected `#<Capybara::Session>.has_xpath?("//div[@data-testid=\"contentCell\"]")` to be truthy, got false[0m
-     [36m# ./spec/support/stories.rb:9:in `verify_zines'[0m
+     [31mFailure/Error: [0m[32mexpect[0m(page).to have_xpath([31m[1;31m'[0m[31m//div[@data-testid="contentCellTitle"][1;31m'[0m[31m[0m)[0m
+     [31m  expected `#<Capybara::Session>.has_xpath?("//div[@data-testid=\"contentCellTitle\"]")` to be truthy, got false[0m
+     [36m# ./spec/support/stories.rb:10:in `verify_zines'[0m
      [36m# ./spec/challenge.rb:90:in `block (2 levels) in <top (required)>'[0m
 
-Finished in 2 minutes 24.4 seconds (files took 2.42 seconds to load)
+Finished in 2 minutes 14.4 seconds (files took 1.81 seconds to load)
 [31m7 examples, 1 failure[0m
 
 Failed examples:
