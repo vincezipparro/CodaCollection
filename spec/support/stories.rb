@@ -6,7 +6,7 @@ module Stories
 
   def verify_zines
     expect(page).to have_xpath('//div[@data-testid="featuredPeriodicalsContainer"]')
-    expect(page).to have_xpath('//div[@data-testid="contentCell"]')
+    expect(page).to have_xpath('//a[@data-testid="contentCell"]')
     expect(page).to have_xpath('//div[@data-testid="contentCellTitle"]')
   end
 

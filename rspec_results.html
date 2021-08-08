@@ -282,3 +282,44 @@ a {
 <div id="div_group_1" class="example_group passed">
   <dl style="margin-left: 0px;">
   <dt id="example_group_1" class="passed">Coda Collection Challenge</dt>
+    <script type="text/javascript">moveProgressBar('14.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should assert navigation to film page and redirect to its corresponding Amazon Prime Video page</span><span class='duration'>45.29140s</span></dd>
+    <script type="text/javascript">moveProgressBar('28.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should assert there is a QA Engineer job posting</span><span class='duration'>9.66970s</span></dd>
+    <script type="text/javascript">moveProgressBar('42.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should assert subscription to the Coda mailing list</span><span class='duration'>12.26658s</span></dd>
+    <script type="text/javascript">moveProgressBar('57.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should assert search results related to the band Radiohead</span><span class='duration'>28.77614s</span></dd>
+    <script type="text/javascript">moveProgressBar('71.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should assert trending stories are being returned on page</span><span class='duration'>9.50478s</span></dd>
+    <script type="text/javascript">moveProgressBar('85.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should assert new releases stories are being returned on page</span><span class='duration'>10.03733s</span></dd>
+    <script type="text/javascript">makeRed('rspec-header');</script>
+    <script type="text/javascript">makeRed('div_group_1');</script>
+    <script type="text/javascript">makeRed('example_group_1');</script>
+    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">should assert critical elements on stories page</span>
+      <span class="duration">28.78093s</span>
+      <div class="failure" id="failure_1">
+        <div class="message"><pre>  Failure/Error: [0m[32mexpect[0m(page).to have_xpath([31m[1;31m&#39;[0m[31m//div[@data-testid=&quot;contentCell&quot;][1;31m&#39;[0m[31m[0m)
+    expected `#&lt;Capybara::Session&gt;.has_xpath?(&quot;//div[@data-testid=\&quot;contentCell\&quot;]&quot;)` to be truthy, got false
+  # ./spec/support/stories.rb:9:in `verify_zines&#39;
+  # ./spec/challenge.rb:90:in `block (2 levels) in &lt;top (required)&gt;&#39;</pre></div>
+        <div class="backtrace"><pre>./spec/support/stories.rb:9:in `verify_zines&#39;
+./spec/challenge.rb:90:in `block (2 levels) in &lt;top (required)&gt;&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">7</span>  <span class="keyword">def</span> <span class="function">verify_zines</span>
+<span class="linenum">8</span>    <span class="keyword">expect</span>(page).to have_xpath(<span class="string"><span class="delimiter">'</span><span class="content">//div[@data-testid=&quot;featuredPeriodicalsContainer&quot;]</span><span class="delimiter">'</span></span>)
+<span class="offending"><span class="linenum">9</span>    <span class="keyword">expect</span>(page).to have_xpath(<span class="string"><span class="delimiter">'</span><span class="content">//div[@data-testid=&quot;contentCell&quot;]</span><span class="delimiter">'</span></span>)</span>
+<span class="linenum">10</span>    <span class="keyword">expect</span>(page).to have_xpath(<span class="string"><span class="delimiter">'</span><span class="content">//div[@data-testid=&quot;contentCellTitle&quot;]</span><span class="delimiter">'</span></span>)
+<span class="linenum">11</span>  <span class="keyword">end</span></code></pre>
+      </div>
+    </dd>
+  </dl>
+</div>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>144.37688 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "7 examples, 1 failure";</script>
+</div>
+</div>
+</body>
+</html>
