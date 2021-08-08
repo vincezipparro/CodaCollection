@@ -282,32 +282,43 @@ a {
 <div id="div_group_1" class="example_group passed">
   <dl style="margin-left: 0px;">
   <dt id="example_group_1" class="passed">Coda Collection Challenge</dt>
+    <script type="text/javascript">moveProgressBar('16.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should assert navigation to film page and redirect to its corresponding Amazon Prime Video page</span><span class='duration'>112.81674s</span></dd>
+    <script type="text/javascript">moveProgressBar('33.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should assert there is a QA Engineer job posting</span><span class='duration'>14.72182s</span></dd>
+    <script type="text/javascript">moveProgressBar('50.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should assert subscription to the Coda mailing list</span><span class='duration'>28.44353s</span></dd>
     <script type="text/javascript">makeRed('rspec-header');</script>
     <script type="text/javascript">makeRed('div_group_1');</script>
     <script type="text/javascript">makeRed('example_group_1');</script>
-    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <script type="text/javascript">moveProgressBar('66.6');</script>
     <dd class="example failed">
       <span class="failed_spec_name">should assert search results related to the band Radiohead</span>
-      <span class="duration">60.86603s</span>
+      <span class="duration">81.31148s</span>
       <div class="failure" id="failure_1">
-        <div class="message"><pre>  Failure/Error: [0mraise [31m[1;31m&#39;[0m[31mUnfortunately there is no content related to the artist you are searching for.[1;31m&#39;[0m[31m[0m [32mif[0m page.has_xpath?([31m[1;31m&quot;[0m[31m//div[contains(text(),&#39;Bummer, it looks like we don’t have what you’re lo&#39;)][1;31m&quot;[0m[31m[0m)
+        <div class="message"><pre>  Failure/Error: [0mvisit [31m[1;31m&quot;[0m[31mhttps://codacollection.co/search?q=#{artist_name}[0m[31m[1;31m&quot;[0m[31m[0m
 
-  RuntimeError:
-    Unfortunately there is no content related to the artist you are searching for.
-  # ./spec/support/search.rb:5:in `artist_search&#39;
-  # ./spec/challenge.rb:42:in `block (2 levels) in &lt;top (required)&gt;&#39;</pre></div>
-        <div class="backtrace"><pre>./spec/support/search.rb:5:in `artist_search&#39;
-./spec/challenge.rb:42:in `block (2 levels) in &lt;top (required)&gt;&#39;</pre></div>
-    <pre class="ruby"><code><span class="linenum">3</span>    visit <span class="string"><span class="delimiter">&quot;</span><span class="content">https://codacollection.co/search?q=</span><span class="inline"><span class="inline-delimiter">#{</span>artist_name<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>
+  Net::ReadTimeout:
+    Net::ReadTimeout with #&lt;TCPSocket:(closed)&gt;
+  # ./spec/support/search.rb:3:in `artist_search&#39;
+  # ./spec/challenge.rb:40:in `block (2 levels) in &lt;top (required)&gt;&#39;</pre></div>
+        <div class="backtrace"><pre>./spec/support/search.rb:3:in `artist_search&#39;
+./spec/challenge.rb:40:in `block (2 levels) in &lt;top (required)&gt;&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">1</span><span class="keyword">module</span> <span class="class">Search</span>
+<span class="linenum">2</span>  <span class="keyword">def</span> <span class="function">artist_search</span>(artist_name)
+<span class="offending"><span class="linenum">3</span>    visit <span class="string"><span class="delimiter">&quot;</span><span class="content">https://codacollection.co/search?q=</span><span class="inline"><span class="inline-delimiter">#{</span>artist_name<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span></span>
 <span class="linenum">4</span>
-<span class="offending"><span class="linenum">5</span>    raise <span class="string"><span class="delimiter">'</span><span class="content">Unfortunately there is no content related to the artist you are searching for.</span><span class="delimiter">'</span></span> <span class="keyword">if</span> page.has_xpath?(<span class="string"><span class="delimiter">&quot;</span><span class="content">//div[contains(text(),'Bummer, it looks like we don’t have what you’re lo')]</span><span class="delimiter">&quot;</span></span>)</span>
-<span class="linenum">6</span>  <span class="keyword">end</span></code></pre>
+<span class="linenum">5</span>    raise <span class="string"><span class="delimiter">'</span><span class="content">Unfortunately there is no content related to the artist you are searching for.</span><span class="delimiter">'</span></span> <span class="keyword">if</span> page.has_xpath?(<span class="string"><span class="delimiter">&quot;</span><span class="content">//div[contains(text(),'Bummer, it looks like we don’t have what you’re lo')]</span><span class="delimiter">&quot;</span></span>)</code></pre>
       </div>
     </dd>
+    <script type="text/javascript">moveProgressBar('83.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should assert trending stories are being returned on page</span><span class='duration'>19.24825s</span></dd>
+    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should assert new releases stories are being returned on page</span><span class='duration'>18.12292s</span></dd>
   </dl>
 </div>
-<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>60.91286 seconds</strong>";</script>
-<script type="text/javascript">document.getElementById('totals').innerHTML = "1 example, 1 failure";</script>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>274.71075 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "6 examples, 1 failure";</script>
 </div>
 </div>
 </body>

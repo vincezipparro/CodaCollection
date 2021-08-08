@@ -5,20 +5,25 @@ Run options:
 All examples were filtered out; ignoring {:focus=>true}
 
 Coda Collection Challenge
+[32m  should assert navigation to film page and redirect to its corresponding Amazon Prime Video page[0m
+[32m  should assert there is a QA Engineer job posting[0m
+[32m  should assert subscription to the Coda mailing list[0m
 [31m  should assert search results related to the band Radiohead (FAILED - 1)[0m
+[32m  should assert trending stories are being returned on page[0m
+[32m  should assert new releases stories are being returned on page[0m
 
 Failures:
 
   1) Coda Collection Challenge should assert search results related to the band Radiohead
-     [31mFailure/Error: [0mraise [31m[1;31m'[0m[31mUnfortunately there is no content related to the artist you are searching for.[1;31m'[0m[31m[0m [32mif[0m page.has_xpath?([31m[1;31m"[0m[31m//div[contains(text(),'Bummer, it looks like we don’t have what you’re lo')][1;31m"[0m[31m[0m)[0m
+     [31mFailure/Error: [0mvisit [31m[1;31m"[0m[31mhttps://codacollection.co/search?q=#{artist_name}[0m[31m[1;31m"[0m[31m[0m[0m
      [31m[0m
-     [31mRuntimeError:[0m
-     [31m  Unfortunately there is no content related to the artist you are searching for.[0m
-     [36m# ./spec/support/search.rb:5:in `artist_search'[0m
-     [36m# ./spec/challenge.rb:42:in `block (2 levels) in <top (required)>'[0m
+     [31mNet::ReadTimeout:[0m
+     [31m  Net::ReadTimeout with #<TCPSocket:(closed)>[0m
+     [36m# ./spec/support/search.rb:3:in `artist_search'[0m
+     [36m# ./spec/challenge.rb:40:in `block (2 levels) in <top (required)>'[0m
 
-Finished in 1 minute 0.91 seconds (files took 1.68 seconds to load)
-[31m1 example, 1 failure[0m
+Finished in 4 minutes 34.7 seconds (files took 2.57 seconds to load)
+[31m6 examples, 1 failure[0m
 
 Failed examples:
 

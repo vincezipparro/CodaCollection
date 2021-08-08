@@ -20,7 +20,7 @@ Capybara.javascript_driver = :selenium
 Capybara.default_driver = :selenium_chrome_headless
 # Capybara.default_driver = :firefox_headless
 Capybara.ignore_hidden_elements = true
-Capybara.default_max_wait_time = 15
+Capybara.default_max_wait_time = 20
 
 # firefox
 Capybara.register_driver :firefox_headless do |app|
@@ -102,4 +102,3 @@ end
 Capybara::Screenshot.register_driver(:firefox_headless) do |driver, path|
   driver.browser.save_screenshot(path)
 end
-
