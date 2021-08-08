@@ -76,8 +76,8 @@ describe 'Coda Collection Challenge' do
     new_releases_arr = []
     new_releases = all(:xpath, '//div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/a')
 
-    new_releases.each do |article|
-      new_releases_arr << article
+    new_releases.each do |story|
+      new_releases_arr << story
     end
 
     verify_new_releases_div(new_releases_arr)
