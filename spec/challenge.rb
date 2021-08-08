@@ -1,21 +1,21 @@
 require 'capybara/rspec'
+include Search
+include Redirect
+include MailingList
+include Discover
 
 describe 'Coda Collection Challenge' do
-  it 'should view a film page and navigate to its corresponding Amazon Prime Video page' do
+  it 'should assert navigation to film page and redirect to its corresponding Amazon Prime Video page' do
     visit 'https://codacollection.co/films'
 
     find(:xpath, "//h2[contains(text(),'What Drives Us')]").click
 
     find(:xpath, "//div[contains(text(),'Watch now on')]").click
 
-    switch_to_window { title == 'Watch What Drives Us | Prime Video' }
-
-    expect(page).to have_current_path('https://www.amazon.com/gp/video/detail/B093KFSGPJ/?&_encoding=UTF8&tag=coda_whatdrivesus-20&linkCode=ur2&linkId=0fcc7caa9c7e6911a6cc9b56a575ca0b&camp=1789&creative=9325')
-    expect(page).to have_xpath("//a[contains(text(),'Prime Video')]")
-    expect(page).to have_xpath("//h1[contains(text(),'What Drives Us')]")
+    amazon_redirect
   end
 
-  it 'should view the QA Engineer job posting' do
+  it 'should assert there is a QA Engineer job posting' do
     visit 'https://codacollection.co/jobs'
 
     expect(page).to have_xpath("//div[contains(text(),'QA Engineer')]")
@@ -26,32 +26,59 @@ describe 'Coda Collection Challenge' do
     expect(job_posting_url.to_s).to include('qa-engineer')
   end
 
-  it 'should successfully subscribe to the Coda mailing list' do
+  it 'should assert subscription to the Coda mailing list' do
     visit 'https://codacollection.co/'
 
     random_str = rand(10**10)
 
-    find(:xpath, '//div[1]/div[1]/form[1]/div[1]/div[1]/input[1]').set("#{random_str}@gmail.com")
-
-    click_button 'Subscribe'
+    generate_and_submit_email(random_str)
 
     expect(page).to have_text("Great. You're in.")
   end
 
-  it 'should view search results related to the band Radiohead' do
-    artist = 'radiohead'
-    visit "https://codacollection.co/search?q=#{artist}"
+  it 'should assert search results related to the band Radiohead' do
+    artist_search('radiohead')
 
     # extract values returned from search for each category and convert them to ints
-    artist_count     = find(:xpath, '//div[2]/ul[1]/li[2]/button[1]/div[1]').text.gsub(/[^0-9]/, '').to_i
-    collection_count = find(:xpath, '//div[2]/ul[1]/li[3]/button[1]/div[1]').text.gsub(/[^0-9]/, '').to_i
-    video_count      = find(:xpath, '//div[2]/ul[1]/li[4]/button[1]/div[1]').text.gsub(/[^0-9]/, '').to_i
-    story_count      = find(:xpath, '//div[2]/ul[1]/li[5]/button[1]/div[1]').text.gsub(/[^0-9]/, '').to_i
+    artist_count     = search_result('//div[2]/ul[1]/li[2]/button[1]/div[1]')
+    collection_count = search_result('//div[2]/ul[1]/li[3]/button[1]/div[1]')
+    video_count      = search_result('//div[2]/ul[1]/li[4]/button[1]/div[1]')
+    story_count      = search_result('//div[2]/ul[1]/li[5]/button[1]/div[1]')
 
     # assert search results do not return 0
-    expect(artist_count).to be >= 1
+    expect(artist_count).to be     >= 1
     expect(collection_count).to be >= 1
-    expect(video_count).to be >= 1
-    expect(story_count).to be >= 1
+    expect(video_count).to be      >= 1
+    expect(story_count).to be      >= 1
+  end
+
+  it 'should assert trending stories are being returned on page' do
+    visit 'https://codacollection.co/'
+
+    find(:xpath, "//div[contains(text(),'Trending')]").click
+
+    trending_arr = []
+    trending_stories = all(:xpath, "//body/div[@id='__next']/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/a")
+
+    trending_stories.each do |story|
+      trending_arr << story
+    end
+
+    verify_trending_div(trending_arr)
+  end
+
+  it 'should assert new releases stories are being returned on page' do
+    visit 'https://codacollection.co/'
+
+    find(:xpath, "//div[contains(text(),'New Releases')]").click
+
+    new_releases_arr = []
+    new_releases = all(:xpath, "//body/div[@id='__next']/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/a")
+
+    new_releases.each do |article|
+      new_releases_arr << article
+    end
+
+    verify_new_releases_div(new_releases_arr)
   end
 end
