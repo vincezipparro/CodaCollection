@@ -7,10 +7,11 @@ include Discover
 include Stories
 include Films
 include Jobs
+include Home
 
 describe 'Coda Collection Challenge - Home Page' do
   before(:each) do
-    visit 'https://codacollection.co/'
+    visit_home_page
   end
 
   it 'should assert subscription to the Coda mailing list' do
@@ -22,29 +23,15 @@ describe 'Coda Collection Challenge - Home Page' do
   end
 
   it 'should assert trending stories are being returned on page' do
-    find(:xpath, "//div[contains(text(),'Trending')]").click
+    click_trending_button
 
-    trending_arr = []
-    trending_stories = all(:xpath, '//div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/a')
-
-    trending_stories.each do |story|
-      trending_arr << story
-    end
-
-    verify_trending_content(trending_arr)
+    verify_trending_content(collect_trending_stories_arr)
   end
 
   it 'should assert new releases stories are being returned on page' do
-    find(:xpath, "//div[contains(text(),'New Releases')]").click
+    click_new_releases_button
 
-    new_releases_arr = []
-    new_releases = all(:xpath, '//div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/a')
-
-    new_releases.each do |story|
-      new_releases_arr << story
-    end
-
-    verify_new_releases_content(new_releases_arr)
+    verify_new_releases_content(collect_new_release_stories_arr)
   end
 end
 

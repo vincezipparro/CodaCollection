@@ -7,7 +7,7 @@ module Jobs
     if page.has_xpath? "//div[contains(text(),'#{job_name}')]"
       find(:xpath, "//div[contains(text(),'#{job_name}')]", match: :first).click
     else
-      raise 'There is no job posting for the specified parameters'
+      raise 'The job you are searching for has no job posting at this time'
     end
   end
 
