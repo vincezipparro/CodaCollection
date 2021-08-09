@@ -1,4 +1,8 @@
 module Stories
+  def visit_stories_page
+    visit 'https://codacollection.co/stories'
+  end
+
   def verify_featured_stories
     expect(page).to have_xpath("//h3[contains(text(),'Featured Stories')]")
     expect(page).to have_xpath('//div[@data-testid="featuredStory-hero"]')

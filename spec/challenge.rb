@@ -5,37 +5,56 @@ include Redirect
 include MailingList
 include Discover
 include Stories
+include Films
+include Jobs
 
-describe 'Coda Collection Challenge' do
-  it 'should assert navigation to film page and redirect to its corresponding Amazon Prime Video page' do
-    visit 'https://codacollection.co/films'
-
-    find(:xpath, "//h2[contains(text(),'What Drives Us')]").click
-
-    find(:xpath, "//div[contains(text(),'Watch now on')]").click
-
-    amazon_redirect
-  end
-
-  it 'should assert there is a QA Engineer job posting' do
-    visit 'https://codacollection.co/jobs'
-
-    expect(page).to have_xpath("//div[contains(text(),'QA Engineer')]")
-    find(:xpath, "//div[contains(text(),'QA Engineer')]", match: :first).click
-
-    expect(page).to have_xpath("//div[contains(text(),'Apply Now')]")
-    job_posting_url = URI.parse(current_url)
-    expect(job_posting_url.to_s).to include('qa-engineer')
+describe 'Coda Collection Challenge - Home Page' do
+  before(:each) do
+    visit 'https://codacollection.co/'
   end
 
   it 'should assert subscription to the Coda mailing list' do
-    visit 'https://codacollection.co/'
-
     random_str = rand(10**10)
 
     generate_and_submit_email(random_str)
 
     expect(page).to have_text("Great. You're in.")
+  end
+
+  it 'should assert trending stories are being returned on page' do
+    find(:xpath, "//div[contains(text(),'Trending')]").click
+
+    trending_arr = []
+    trending_stories = all(:xpath, '//div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/a')
+
+    trending_stories.each do |story|
+      trending_arr << story
+    end
+
+    verify_trending_content(trending_arr)
+  end
+
+  it 'should assert new releases stories are being returned on page' do
+    find(:xpath, "//div[contains(text(),'New Releases')]").click
+
+    new_releases_arr = []
+    new_releases = all(:xpath, '//div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/a')
+
+    new_releases.each do |story|
+      new_releases_arr << story
+    end
+
+    verify_new_releases_content(new_releases_arr)
+  end
+end
+
+describe 'Coda Collection Challenge - Other Pages' do
+  it 'should assert critical elements on stories page' do
+    visit_stories_page
+
+    verify_featured_stories
+    verify_zines
+    verify_all_stories
   end
 
   it 'should assert search results related to the band Radiohead' do
@@ -54,41 +73,17 @@ describe 'Coda Collection Challenge' do
     expect(story_count).to be      >= 1
   end
 
-  it 'should assert trending stories are being returned on page' do
-    visit 'https://codacollection.co/'
+  it 'should assert navigation to film page and redirect to its corresponding Amazon Prime Video page' do
+    view_artist_film_page('what-drives-us')
 
-    find(:xpath, "//div[contains(text(),'Trending')]").click
-
-    trending_arr = []
-    trending_stories = all(:xpath, '//div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/a')
-
-    trending_stories.each do |story|
-      trending_arr << story
-    end
-
-    verify_trending_content(trending_arr)
+    amazon_redirect
   end
 
-  it 'should assert new releases stories are being returned on page' do
-    visit 'https://codacollection.co/'
+  it 'should assert there is a QA Engineer job posting' do
+    visit_jobs_page
 
-    find(:xpath, "//div[contains(text(),'New Releases')]").click
+    view_job('QA Engineer')
 
-    new_releases_arr = []
-    new_releases = all(:xpath, '//div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/a')
-
-    new_releases.each do |story|
-      new_releases_arr << story
-    end
-
-    verify_new_releases_content(new_releases_arr)
-  end
-
-  it 'should assert critical elements on stories page' do
-    visit 'https://codacollection.co/stories'
-
-    verify_featured_stories
-    verify_zines
-    verify_all_stories
+    verify_job_criteria
   end
 end

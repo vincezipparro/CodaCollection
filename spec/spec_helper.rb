@@ -19,7 +19,7 @@ Capybara.javascript_driver = :selenium
 Capybara.default_driver = :selenium_chrome_headless
 # Capybara.default_driver = :firefox_headless
 Capybara.ignore_hidden_elements = true
-Capybara.default_max_wait_time = 20
+Capybara.default_max_wait_time = 5
 
 # firefox
 Capybara.register_driver :firefox_headless do |app|
