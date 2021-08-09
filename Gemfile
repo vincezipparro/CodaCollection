@@ -4,20 +4,20 @@ source 'https://rubygems.org'
 gem 'rails', '~> 6.0'
 
 group :test, :development do
-  gem 'rspec-rails'
   gem 'capybara'
   gem 'capybara-screenshot', require: nil
-  gem 'selenium-webdriver', '~> 3.142.7'
   gem 'geckodriver-helper'
-  gem 'webdrivers', '~> 4.3'
-  gem 'roo'
-  gem 'roo-xls'
   gem 'nokogiri', '~> 1.11.4'
-  gem 'rspec-retry'
   gem 'pry'
   gem 'pry-nav'
   gem 'readapt'
+  gem 'roo'
+  gem 'roo-xls'
+  gem 'rspec-rails'
+  gem 'rspec-retry'
+  gem 'selenium-webdriver', '~> 3.142.7'
   gem 'solargraph'
+  gem 'webdrivers', '~> 4.3'
 
   # this gem is required to run tests on Windows too
   gem 'tzinfo-data'

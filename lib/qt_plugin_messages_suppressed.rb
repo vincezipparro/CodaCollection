@@ -2,13 +2,13 @@
 # Note that the messages being filtered out below have ZERO impact on test status or performance
 
 class QtPluginMessagesSuppressed
-  IGNOREABLE = Regexp.new( [
+  IGNOREABLE = Regexp.new([
     'CoreText performance',
     'userSpaceScaleFactor',
     'Internet Plug-Ins',
     'is implemented in bo',
     'unknown URL'
-  ].join('|') )
+  ].join('|'))
 
   def write(message)
     if message =~ IGNOREABLE
