@@ -4,11 +4,9 @@ module Jobs
   end
 
   def view_job(job_name)
-    if page.has_xpath? "//div[contains(text(),'#{job_name}')]"
-      find(:xpath, "//div[contains(text(),'#{job_name}')]", match: :first).click
-    else
-      raise 'The job you are searching for has no job posting at this time'
-    end
+    raise 'The job you are searching for has no job posting at this time' unless page.has_xpath? "//div[contains(text(),'#{job_name}')]"
+
+    find(:xpath, "//div[contains(text(),'#{job_name}')]", match: :first).click
   end
 
   def verify_job_criteria
