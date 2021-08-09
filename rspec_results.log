@@ -5,26 +5,3 @@ Run options:
 All examples were filtered out; ignoring {:focus=>true}
 
 Coda Collection Challenge
-[32m  should assert navigation to film page and redirect to its corresponding Amazon Prime Video page[0m
-[32m  should assert there is a QA Engineer job posting[0m
-[32m  should assert subscription to the Coda mailing list[0m
-[32m  should assert search results related to the band Radiohead[0m
-[32m  should assert trending stories are being returned on page[0m
-[32m  should assert new releases stories are being returned on page[0m
-[31m  should assert critical elements on stories page (FAILED - 1)[0m
-
-Failures:
-
-  1) Coda Collection Challenge should assert critical elements on stories page
-     [31mFailure/Error: [0m[32mexpect[0m(page).to have_xpath([31m[1;31m'[0m[31m//div[@data-testid="contentCellTitle"][1;31m'[0m[31m[0m)[0m
-     [31m  expected `#<Capybara::Session>.has_xpath?("//div[@data-testid=\"contentCellTitle\"]")` to be truthy, got false[0m
-     [36m# ./spec/support/stories.rb:10:in `verify_zines'[0m
-     [36m# ./spec/challenge.rb:90:in `block (2 levels) in <top (required)>'[0m
-
-Finished in 2 minutes 14.4 seconds (files took 1.81 seconds to load)
-[31m7 examples, 1 failure[0m
-
-Failed examples:
-
-[31mrspec ./spec/challenge.rb:86[0m [36m# Coda Collection Challenge should assert critical elements on stories page[0m
-
