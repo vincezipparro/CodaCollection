@@ -66,7 +66,7 @@ describe 'Coda Collection Challenge' do
       trending_arr << story
     end
 
-    verify_trending_div(trending_arr)
+    verify_trending_content(trending_arr)
   end
 
   it 'should assert new releases stories are being returned on page' do
@@ -81,7 +81,7 @@ describe 'Coda Collection Challenge' do
       new_releases_arr << story
     end
 
-    verify_new_releases_div(new_releases_arr)
+    verify_new_releases_content(new_releases_arr)
   end
 
   it 'should assert critical elements on stories page' do
