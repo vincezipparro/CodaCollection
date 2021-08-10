@@ -9,9 +9,7 @@ describe 'Coda Collection Challenge - Home Page' do
   it 'should assert subscription to the Coda mailing list' do
     random_str = rand(10**10)
 
-    generate_and_submit_email(random_str)
-
-    expect(page).to have_text("Great. You're in.")
+    assert_mailing_list_subscription(random_str)
   end
 
   it 'should assert trending stories are being returned on page' do
@@ -45,7 +43,7 @@ describe 'Coda Collection Challenge - Other Pages' do
   it 'should assert navigation to film page and redirect to its corresponding Amazon Prime Video page' do
     view_artist_film_page('what-drives-us')
 
-    amazon_redirect
+    assert_amazon_redirect
   end
 
   it 'should assert there is a QA Engineer job posting' do

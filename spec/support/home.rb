@@ -29,10 +29,11 @@ module Home
     end
   end
 
-  def generate_and_submit_email(email_name)
+  def assert_mailing_list_subscription(email_name)
     find(:xpath, '//form[1]/div[1]/div[1]/input[1]').set("#{email_name}@gmail.com")
 
     click_button 'Subscribe'
+    expect(page).to have_text("Great. You're in.")
   end
 
   def assert_trending_content(arr)
