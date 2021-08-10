@@ -39,17 +39,7 @@ describe 'Coda Collection Challenge - Other Pages' do
   it 'should assert search results related to the band Radiohead' do
     artist_search('radiohead')
 
-    # extract values returned from search for each category and convert them to ints
-    artist_count     = search_result('//div[2]/ul[1]/li[2]/button[1]/div[1]')
-    collection_count = search_result('//div[2]/ul[1]/li[3]/button[1]/div[1]')
-    video_count      = search_result('//div[2]/ul[1]/li[4]/button[1]/div[1]')
-    story_count      = search_result('//div[2]/ul[1]/li[5]/button[1]/div[1]')
-
-    # assert search results do not return 0
-    expect(artist_count).to be     >= 1
-    expect(collection_count).to be >= 1
-    expect(video_count).to be      >= 1
-    expect(story_count).to be      >= 1
+    assert_search_results
   end
 
   it 'should assert navigation to film page and redirect to its corresponding Amazon Prime Video page' do
