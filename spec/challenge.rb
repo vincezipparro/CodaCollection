@@ -1,10 +1,5 @@
 require 'capybara/rspec'
 require 'spec_helper'
-include Search
-include Stories
-include Films
-include Jobs
-include Home
 
 describe 'Coda Collection Challenge - Home Page' do
   before(:each) do
