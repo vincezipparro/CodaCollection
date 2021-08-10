@@ -17,13 +17,13 @@ describe 'Coda Collection Challenge - Home Page' do
   it 'should assert trending stories are being returned on page' do
     click_trending_button
 
-    verify_trending_content(collect_trending_stories_arr)
+    assert_trending_content(collect_trending_stories_arr)
   end
 
   it 'should assert new releases stories are being returned on page' do
     click_new_releases_button
 
-    verify_new_releases_content(collect_new_release_stories_arr)
+    assert_new_releases_content(collect_new_release_stories_arr)
   end
 end
 
@@ -31,9 +31,9 @@ describe 'Coda Collection Challenge - Other Pages' do
   it 'should assert critical elements on stories page' do
     visit_stories_page
 
-    verify_featured_stories
-    verify_zines
-    verify_all_stories
+    assert_featured_stories_content
+    assert_zines_content
+    assert_all_stories_content
   end
 
   it 'should assert search results related to the band Radiohead' do
@@ -63,6 +63,6 @@ describe 'Coda Collection Challenge - Other Pages' do
 
     view_job('QA Engineer')
 
-    verify_job_criteria
+    assert_job_criteria
   end
 end

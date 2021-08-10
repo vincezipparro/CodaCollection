@@ -9,7 +9,7 @@ module Jobs
     find(:xpath, "//div[contains(text(),'#{job_name}')]", match: :first).click
   end
 
-  def verify_job_criteria
+  def assert_job_criteria
     expect(page).to have_xpath("//div[contains(text(),'Apply Now')]")
     job_posting_url = URI.parse(current_url)
     expect(job_posting_url.to_s).to include('qa-engineer')

@@ -35,13 +35,13 @@ module Home
     click_button 'Subscribe'
   end
 
-  def verify_trending_content(arr)
+  def assert_trending_content(arr)
     raise 'Not enough or no trending stories are being returned' if arr.count == 0 || arr.count < 6
 
     expect(arr.count).to eq(6)
   end
 
-  def verify_new_releases_content(arr)
+  def assert_new_releases_content(arr)
     raise 'Not enough or no new release stories are being returned' if arr.count == 0 || arr.count < 6
 
     expect(arr.count).to eq(6)
