@@ -11,13 +11,9 @@ require 'webdrivers'
 require 'pry'
 require 'pry-nav'
 
-# webdrivers debug
-# Webdrivers.logger.level = :DEBUG
-
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
 Capybara.javascript_driver = :selenium
 Capybara.default_driver = :selenium_chrome_headless
-# Capybara.default_driver = :firefox_headless
 Capybara.ignore_hidden_elements = true
 Capybara.default_max_wait_time = 15
 
@@ -68,6 +64,12 @@ Capybara.register_driver :selenium_chrome_headless do |app|
 end
 
 RSpec.configure do |config|
+  config.include Search
+  config.include Stories
+  config.include Films
+  config.include Jobs
+  config.include Home
+
   config.include ERB::Util
   config.include Capybara::DSL
   config.infer_base_class_for_anonymous_controllers = false
